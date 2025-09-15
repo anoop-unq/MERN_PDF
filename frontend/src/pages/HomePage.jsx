@@ -89,7 +89,7 @@ const HomePage = () => {
             >
               <FaArrowLeft className="text-xl" />
             </button>
-            <h1 className="text-2xl font-bold ml-4">Public Feed</h1>
+            <h1 className="text-xl font-bold ml-2 sm:text-2xl"></h1>
           </div>
           
           {/* Search Bar */}
@@ -105,7 +105,7 @@ const HomePage = () => {
                 onChange={handleSearchChange}
                 onFocus={handleSearchFocus}
                 onBlur={handleSearchBlur}
-                className="w-full pl-10 pr-10 py-2.5 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-gray-300 focus:bg-white focus:outline-none transition-all duration-200"
+                className="w-full pl-10 pr-0 py-2.5 bg-gray-100 rounded-lg border-none focus:ring-2 focus:ring-gray-300 focus:bg-white focus:outline-none transition-all duration-200"
               />
               {searchQuery && (
                 <button

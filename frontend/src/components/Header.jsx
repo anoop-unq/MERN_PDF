@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { assets } from '../assets/assets';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation,Link } from 'react-router-dom';
 import { FaFilePdf, FaDownload, FaSearch, FaUserTie, FaNetworkWired, FaChartLine, FaStar } from "react-icons/fa";
 import { AppContext } from '../context/AppContext';
 
@@ -63,31 +63,38 @@ const Header = () => {
                "Join thousands of professionals sharing resumes and connecting with opportunities worldwide."}
             </p>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-4 max-w-md">
-              <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-gray-100 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <div className="bg-blue-100 p-2 rounded-lg">
-                    <FaFilePdf className="text-blue-600 text-xl" />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-gray-800">10K+</p>
-                    <p className="text-sm text-gray-600">Resumes Shared</p>
-                  </div>
-                </div>
-              </div>
-              <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl border border-gray-100 shadow-sm">
-                <div className="flex items-center gap-2">
-                  <div className="bg-indigo-100 p-2 rounded-lg">
-                    <FaNetworkWired className="text-indigo-600 text-xl" />
-                  </div>
-                  <div>
-                    <p className="text-2xl font-bold text-gray-800">5K+</p>
-                    <p className="text-sm text-gray-600">Active Recruiters</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl mx-auto">
+  {/* First Stats Card */}
+  <div className="bg-white/90 backdrop-blur-sm p-5 rounded-xl border border-gray-100 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+    <div className="flex items-center gap-4">
+      <div className="bg-gradient-to-br from-blue-500 to-blue-600 p-3 rounded-xl shadow-md">
+        <FaFilePdf className="text-white text-2xl" />
+      </div>
+      <div>
+        <p className="text-2xl md:text-3xl font-bold text-gray-800 font-poppins">100+</p>
+        <p className="text-sm text-gray-600 mt-1 font-inter">Resumes Shared</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Second Stats Card with Link */}
+  <div className="bg-white/90 backdrop-blur-sm p-5 rounded-xl border border-gray-100 shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02]">
+    <div className="flex items-center gap-4">
+      <div className="bg-gradient-to-br from-indigo-500 to-purple-600 p-3 rounded-xl shadow-md">
+        <FaNetworkWired className="text-white text-2xl" />
+      </div>
+      <div className="flex-1">
+        <p className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 font-poppins">Shared Resumes</p>
+        <Link 
+          to="/all-resumes" 
+          className="inline-block mt-2 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white text-sm font-medium py-2 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 font-inter"
+        >
+          View All Resumes
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
 
             {/* Features Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">

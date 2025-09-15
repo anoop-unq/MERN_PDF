@@ -14,6 +14,7 @@ import UsersImage from "./components/UsersImage";
 import DuplicateView from "./components/DuplicateView";
 import  ViewSpecificUser  from "./components/ViewSpecificUser";
 import GuestLogin from "./components/GuestLogin";
+import { ViewAllResumes } from "./components/ViewAllResumes";
 
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
       <Route path="/view-specific-user/:userId" element={<ViewSpecificUser />}/>
       <Route path="/view-users/image/:userId" element={<UsersImage />} />
       <Route path="/view-user/image/:userId" element={<DuplicateView />}/>
+      <Route path="/all-resumes" element={<ViewAllResumes />}/>
       <Route path="/guest" element={<GuestLogin/>}/>
     </Routes>
   

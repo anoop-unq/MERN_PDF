@@ -7,8 +7,9 @@ import { toast } from "react-toastify";
 import { ChatBubbleOvalLeftEllipsisIcon } from '@heroicons/react/24/outline';
 import ConfirmationModal from './ConfirmModal';
 import { motion } from "framer-motion";
- import{ FiDownload
+ import{ FiDownload,
 } from "react-icons/fi";
+import { FaWhatsapp } from 'react-icons/fa';
 const PostList = ({ posts: postsProp,id:userId  }) => {
   
   const { 
@@ -388,7 +389,7 @@ const handleDeleteComment = async (commentId) => { // Only need commentId now
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 px-3 sm:px-4 md:px-6 lg:px-8 py-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 px-0 sm:px-0 md:px-6 lg:px-8 py-6">
       {/* Filter Buttons */}
       <div className="max-w-7xl mx-auto mb-6">
         <div className="flex flex-wrap gap-3 justify-center">
@@ -530,18 +531,29 @@ const handleDeleteComment = async (commentId) => { // Only need commentId now
                     )}
                   </div>
                   
-                  {/* PDF File Display */}
-                  {hasPdf && (
+
+
+                   {hasPdf && (
                     <div className="relative mx-5 mb-4">
                       <div className="rounded-2xl overflow-hidden shadow-lg bg-white p-4">
-                        <div className="flex items-center space-x-4">
+                        <div className="flex items-center  space-x-4 ">
                           <div className="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center">
                             <svg className="w-10 h-10 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h4 className="text-sm font-bold text-gray-900 truncate">{post.fileName || 'Resume Document'}</h4>
+                            {
+                              post.fileName ?
+                              (
+                            <h4 className="text-sm font-bold text-gray-900 truncate">{post.fileName}</h4>
+
+                              ):
+                              (
+                            <h4 className="text-sm font-bold text-gray-900 truncate">Resume Document</h4>
+
+                              )
+                            }
                             <p className="text-xs text-gray-500">PDF File</p>
                             <a 
                               href={post.fileUrl} 
@@ -552,6 +564,8 @@ const handleDeleteComment = async (commentId) => { // Only need commentId now
                               View Resume
                             </a>
                           </div>
+
+                          
                         </div>
                       </div>
                     </div>
@@ -559,7 +573,7 @@ const handleDeleteComment = async (commentId) => { // Only need commentId now
 
                   {
                     userId &&(
-                      <div className='flex justify-center items-center mt-3 mb-5'>
+                      <div className='flex items-center justify-center mb-5 mt-3'>
                       <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -600,10 +614,12 @@ const handleDeleteComment = async (commentId) => { // Only need commentId now
                     )
                   }
 
+                
+
                   
                   {/* Post Actions */}
-                  <div className="px-5 pb-5">
-                    <div className="flex items-center justify-between mb-4">
+                  <div className="px-2 pb-5">
+                    <div className="flex items-center justify-center mb-4 gap-3 ">
                       {/* Like Button */}
                       <button 
                         className={`flex items-center space-x-2 px-4 py-3 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 ${

@@ -60,6 +60,7 @@ const ViewUsers = () => {
       setShowPosts(false);
     }
   };
+ 
 
   const toggleDetails = async () => {
     if (!showDetails) {
@@ -171,19 +172,35 @@ const ViewUsers = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-purple-50 py-8 mt-20">
       <div className="max-w-4xl mx-auto px-4 md:px-6">
         {/* Back Button */}
-        <div className="mb-6">
-          <button
-            onClick={() => navigate("/home")}
-            className="flex items-center justify-center bg-white text-gray-700 rounded-full p-3 w-12 h-12 hover:bg-gray-100 transition duration-200 ease-in-out shadow-sm border border-gray-200 hover:shadow-md"
-            aria-label="Go back"
-          >
-            <FaArrowLeft className="text-xl" />
-          </button>
+ <div className="fixed top-0 left-0  w-full z-50 bg-gradient-to-r from-blue-50 to-indigo-50 shadow-sm  ">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-5 ">
+          <div className="flex items-center">
+            <button
+              onClick={()=>navigate("/")}
+              className="flex items-center justify-center bg-white text-gray-700 rounded-full p-3 w-12 h-12 hover:bg-gray-100 transition duration-200 ease-in-out shadow-sm border border-gray-200 "
+              aria-label="Go back"
+            >
+              <FaArrowLeft className="text-xl" />
+            </button>
+            <h1 
+  className="text-xl font-bold ml-4 sm:text-2xl md:text-3xl lg:text-4xl font-poppins max-w-[90vw] md:max-w-[80vw] lg:max-w-[70vw] xl:max-w-[60vw]"
+  style={{
+    fontFamily: "'Poppins', sans-serif"
+  }}
+>
+  <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent transition-all duration-300 hover:from-blue-600 hover:to-purple-600">
+    {userdata.name.length > 20 ? `${userdata.name.substring(0, 20)}'s...` : `${userdata.name}'s`}
+  </span>
+  <span className="text-orange-700 ml-2 transition-all duration-300 hover:text-purple-600">Profile</span>
+</h1>
+          </div>
+          
+          
         </div>
-
+      </div>
         {/* Profile Header Card */}
         <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl shadow-xl overflow-hidden mb-8">
           <div className="p-6 md:p-8 text-white">
